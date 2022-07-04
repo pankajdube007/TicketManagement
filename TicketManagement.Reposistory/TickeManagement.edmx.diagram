@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f18e8b2bbaec41e0950f30d2f1d47842" Name="Diagram1">
+        <EntityTypeShape EntityType="GoldmedalTicketModel.CategoryMaster" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.RoleMaster" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.MenuCategoryMaster" Width="1.5" PointX="3.75" PointY="4.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.MenuMaster" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.SubMenuMaster" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.AgentCategoryAssigned" Width="1.5" PointX="6.75" PointY="5.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.AgentCheckInStatusDetail" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.AgentCheckInStatusSummary" Width="1.5" PointX="3.75" PointY="8.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.AttachmentDetail" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.OverdueType" Width="1.5" PointX="5.75" PointY="9.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.Priority" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.ProfileImage" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.ProfileImageStatu" Width="1.5" PointX="7.75" PointY="10.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.RegisterVerification" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.ReplyAttachment" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.ReplyAttachmentDetail" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.ResetPasswordVerification" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.SavedAssignedRole" Width="1.5" PointX="12.75" PointY="10.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.Signature" Width="1.5" PointX="4.75" PointY="13.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.Status" Width="1.5" PointX="9.75" PointY="13.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.TicketDeleteLockStatu" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.TicketDetail" Width="1.5" PointX="14.75" PointY="5.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.TicketEscalationHistory" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.TicketHistory" Width="1.5" PointX="11.75" PointY="14.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.TicketReply" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.Ticket" Width="1.5" PointX="13.75" PointY="15.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.TicketStatu" Width="1.5" PointX="15.75" PointY="15.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.UserToken" Width="1.5" PointX="16.75" PointY="5.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.Attachment" Width="1.5" PointX="16.75" PointY="9.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.PasswordMaster" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.Usermaster" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.CategoryConfigration" Width="1.5" PointX="3.375" PointY="17.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.Login_history" Width="1.5" PointX="18.375" PointY="14.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.logindetl" Width="1.5" PointX="19.375" PointY="4.75" />
+        <EntityTypeShape EntityType="GoldmedalTicketModel.BusinessHour" Width="1.5" PointX="18.375" PointY="19.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

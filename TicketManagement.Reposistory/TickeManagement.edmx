@@ -1,0 +1,2100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GoldmedalTicketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AgentCategoryAssigned">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="bigint" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="AgentCheckInStatusDetails">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CheckInTime" Type="datetime" />
+          <Property Name="CheckOutTime" Type="datetime" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="AgentCheckInStatusSummary">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgentStatus" Type="bit" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="AttachmentDetails">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttachmentBytes" Type="image" />
+          <Property Name="TicketId" Type="bigint" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="AttachmentId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GoldmedalTicket.dbo.Attachments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Attachments">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttachmentName" Type="varchar" MaxLength="1000" />
+          <Property Name="AttachmentType" Type="varchar" MaxLength="50" />
+          <Property Name="TicketId" Type="bigint" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="BusinessHours">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="HelpdeskHoursType" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="CategoryConfigration">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="bigint" />
+          <Property Name="AgentAdminUserId" Type="bigint" />
+          <Property Name="BusinessHoursId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+          <Property Name="HodUserId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="CategoryMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryCode" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Login_history">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="bigint" />
+          <Property Name="loginTime" Type="datetime" />
+          <Property Name="logouttime" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="logindetl">
+          <Key>
+            <PropertyRef Name="SlNo" />
+          </Key>
+          <Property Name="SlNo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userlogid" Type="int" Nullable="false" />
+          <Property Name="logindt" Type="datetime" />
+          <Property Name="ipaddress" Type="varchar" MaxLength="100" />
+          <Property Name="computername" Type="varchar" MaxLength="100" />
+          <Property Name="logtime" Type="varchar" MaxLength="100" />
+          <Property Name="macaddress" Type="varchar" MaxLength="100" />
+          <Property Name="GeoLocation" Type="varchar(max)" />
+          <Property Name="Latitude" Type="varchar" MaxLength="100" />
+          <Property Name="Longitude" Type="varchar" MaxLength="100" />
+          <Property Name="OSFamily" Type="varchar" MaxLength="500" />
+          <Property Name="OSVersion" Type="varchar" MaxLength="500" />
+          <Property Name="BrowserFamily" Type="varchar" MaxLength="500" />
+          <Property Name="BrowserVersion" Type="varchar" MaxLength="500" />
+          <Property Name="DeviceFamily" Type="varchar" MaxLength="500" />
+          <Property Name="DeviceFormFactor" Type="varchar" MaxLength="500" />
+          <Property Name="devBrand" Type="varchar" MaxLength="500" />
+          <Property Name="devModel" Type="varchar" MaxLength="500" />
+          <Property Name="devbot" Type="bit" />
+          <Property Name="LocationType" Type="int" />
+          <Property Name="LocationResponse" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="MenuCategoryMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuCategoryName" Type="varchar" MaxLength="100" />
+          <Property Name="RoleId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+          <Property Name="SortingOrder" Type="bigint" />
+        </EntityType>
+        <EntityType Name="MenuMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="varchar" MaxLength="100" />
+          <Property Name="ControllerName" Type="varchar" MaxLength="100" />
+          <Property Name="ActionMethod" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryId" Type="bigint" />
+          <Property Name="RoleId" Type="bigint" />
+          <Property Name="SortingOrder" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="OverdueTypes">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OverdueType" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="PasswordMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PriorityName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="ProfileImage">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileImageBase64String" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="ProfileImageStatus">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Isuploaded" Type="bit" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="ProfileImageId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="RegisterVerification">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GeneratedToken" Type="varchar" MaxLength="50" />
+          <Property Name="GeneratedDate" Type="datetime" />
+          <Property Name="VerificationStatus" Type="bit" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="VerificationDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="ReplyAttachment">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" Nullable="false" />
+          <Property Name="AttachmentName" Type="varchar" MaxLength="50" />
+          <Property Name="AttachmentType" Type="varchar" MaxLength="50" />
+          <Property Name="TicketUser" Type="bigint" />
+          <Property Name="SystemUser" Type="bigint" />
+          <Property Name="TicketReplyId" Type="bigint" />
+          <Property Name="TicketId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="ReplyAttachmentDetails">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttachmentBytes" Type="image" />
+          <Property Name="TicketId" Type="bigint" />
+          <Property Name="ReplyAttachmentId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="ResetPasswordVerification">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GeneratedToken" Type="varchar" MaxLength="50" />
+          <Property Name="GeneratedDate" Type="datetime" />
+          <Property Name="VerificationStatus" Type="bit" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="VerificationDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="RoleMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+          <Property Name="RoleId" Type="int" />
+        </EntityType>
+        <EntityType Name="SavedAssignedRoles">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="RoleId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Signatures">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Signature" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusText" Type="varchar" MaxLength="50" />
+          <Property Name="IsInternalStatus" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="SubMenuMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ControllerName" Type="varchar" MaxLength="100" />
+          <Property Name="ActionMethod" Type="varchar" MaxLength="100" />
+          <Property Name="SubMenuName" Type="varchar" MaxLength="100" />
+          <Property Name="MenuId" Type="bigint" />
+          <Property Name="CategoryId" Type="bigint" />
+          <Property Name="RoleId" Type="bigint" />
+          <Property Name="SortingOrder" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+          <Property Name="UserId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="TicketDeleteLockStatus">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketDeleteStatus" Type="bit" />
+          <Property Name="TicketLockStatus" Type="bit" />
+          <Property Name="TicketId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="TicketDetails">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="100" />
+          <Property Name="Message" Type="varchar" MaxLength="2000" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="TicketId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="TicketEscalationHistory">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketId" Type="bigint" />
+          <Property Name="EscalationDate1" Type="datetime" />
+          <Property Name="EscalationDate2" Type="datetime" />
+          <Property Name="EscalationStage1UserId" Type="bigint" />
+          <Property Name="EscalationStage2UserId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="TicketHistory">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="1000" />
+          <Property Name="ProcessDate" Type="datetime" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="TicketId" Type="bigint" />
+          <Property Name="StatusId" Type="bigint" />
+          <Property Name="PriorityId" Type="bigint" />
+          <Property Name="CategoryId" Type="bigint" />
+          <Property Name="TicketReplyId" Type="bigint" />
+          <Property Name="ActivitiesId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="TicketReply">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="TicketId" Type="bigint" />
+          <Property Name="CreatedDateDisplay" Type="varchar" MaxLength="50" />
+          <Property Name="DeleteStatus" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrackingId" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="PriorityId" Type="bigint" />
+          <Property Name="CategoryId" Type="bigint" />
+          <Property Name="Contact" Type="varchar" MaxLength="20" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="StatusAssigned" Type="bit" />
+          <Property Name="InternalUserId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="TicketStatus">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketId" Type="bigint" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="TicketAssignedDate" Type="datetime" />
+          <Property Name="TicketUpdatedDate" Type="datetime" />
+          <Property Name="StatusId" Type="bigint" />
+          <Property Name="PriorityId" Type="bigint" />
+          <Property Name="DeleteStatus" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="PerviousStatusId" Type="bigint" />
+          <Property Name="CategoryId" Type="bigint" />
+          <Property Name="EscalationStatus" Type="bit" />
+          <Property Name="FirstResponseDue" Type="datetime" />
+          <Property Name="FirstResponseStatus" Type="bit" />
+          <Property Name="ResolutionDue" Type="datetime" />
+          <Property Name="ResolutionStatus" Type="bit" />
+          <Property Name="EveryResponseStatus" Type="bit" />
+          <Property Name="EscalationStage" Type="bigint" />
+          <Property Name="IsActive1" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Usermaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="IsFirstLogin" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+          <Property Name="IsLogin_Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserTokens">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PasswordSalt" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreateId" Type="bigint" />
+          <Property Name="Createdt" Type="datetime" />
+          <Property Name="ModifyId" Type="bigint" />
+          <Property Name="Modifydt" Type="datetime" />
+          <Property Name="DelId" Type="bigint" />
+          <Property Name="Deldt" Type="datetime" />
+          <Property Name="LogNo" Type="bigint" />
+        </EntityType>
+        <EntityContainer Name="GoldmedalTicketModelStoreContainer">
+          <EntitySet Name="AgentCategoryAssigned" EntityType="Self.AgentCategoryAssigned" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgentCheckInStatusDetails" EntityType="Self.AgentCheckInStatusDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgentCheckInStatusSummary" EntityType="Self.AgentCheckInStatusSummary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttachmentDetails" EntityType="Self.AttachmentDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BusinessHours" EntityType="Self.BusinessHours" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryConfigration" EntityType="Self.CategoryConfigration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryMaster" EntityType="Self.CategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login_history" EntityType="Self.Login_history" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="logindetl" EntityType="Self.logindetl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuCategoryMaster" EntityType="Self.MenuCategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuMaster" EntityType="Self.MenuMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OverdueTypes" EntityType="Self.OverdueTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PasswordMaster" EntityType="Self.PasswordMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Priority" EntityType="Self.Priority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileImage" EntityType="Self.ProfileImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileImageStatus" EntityType="Self.ProfileImageStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegisterVerification" EntityType="Self.RegisterVerification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReplyAttachment" EntityType="Self.ReplyAttachment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReplyAttachmentDetails" EntityType="Self.ReplyAttachmentDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResetPasswordVerification" EntityType="Self.ResetPasswordVerification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleMaster" EntityType="Self.RoleMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SavedAssignedRoles" EntityType="Self.SavedAssignedRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Signatures" EntityType="Self.Signatures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubMenuMaster" EntityType="Self.SubMenuMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketDeleteLockStatus" EntityType="Self.TicketDeleteLockStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketDetails" EntityType="Self.TicketDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketEscalationHistory" EntityType="Self.TicketEscalationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketHistory" EntityType="Self.TicketHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketReply" EntityType="Self.TicketReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketStatus" EntityType="Self.TicketStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usermaster" EntityType="Self.Usermaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTokens" EntityType="Self.UserTokens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attachments" EntityType="Self.Attachments" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Attachments].[SLNO] AS [SLNO], 
+    [Attachments].[AttachmentName] AS [AttachmentName], 
+    [Attachments].[AttachmentType] AS [AttachmentType], 
+    [Attachments].[TicketId] AS [TicketId], 
+    [Attachments].[UserId] AS [UserId], 
+    [Attachments].[IsActive] AS [IsActive], 
+    [Attachments].[CreateId] AS [CreateId], 
+    [Attachments].[Createdt] AS [Createdt], 
+    [Attachments].[ModifyId] AS [ModifyId], 
+    [Attachments].[Modifydt] AS [Modifydt], 
+    [Attachments].[DelId] AS [DelId], 
+    [Attachments].[Deldt] AS [Deldt], 
+    [Attachments].[LogNo] AS [LogNo]
+    FROM [dbo].[Attachments] AS [Attachments]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GoldmedalTicketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GoldmedalTicketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CategoryMasters" EntityType="GoldmedalTicketModel.CategoryMaster" />
+          <EntitySet Name="RoleMasters" EntityType="GoldmedalTicketModel.RoleMaster" />
+          <EntitySet Name="MenuCategoryMasters" EntityType="GoldmedalTicketModel.MenuCategoryMaster" />
+          <EntitySet Name="MenuMasters" EntityType="GoldmedalTicketModel.MenuMaster" />
+          <EntitySet Name="SubMenuMasters" EntityType="GoldmedalTicketModel.SubMenuMaster" />
+          <EntitySet Name="AgentCategoryAssigneds" EntityType="GoldmedalTicketModel.AgentCategoryAssigned" />
+          <EntitySet Name="AgentCheckInStatusDetails" EntityType="GoldmedalTicketModel.AgentCheckInStatusDetail" />
+          <EntitySet Name="AgentCheckInStatusSummaries" EntityType="GoldmedalTicketModel.AgentCheckInStatusSummary" />
+          <EntitySet Name="AttachmentDetails" EntityType="GoldmedalTicketModel.AttachmentDetail" />
+          <EntitySet Name="OverdueTypes" EntityType="GoldmedalTicketModel.OverdueType" />
+          <EntitySet Name="Priorities" EntityType="GoldmedalTicketModel.Priority" />
+          <EntitySet Name="ProfileImages" EntityType="GoldmedalTicketModel.ProfileImage" />
+          <EntitySet Name="ProfileImageStatus" EntityType="GoldmedalTicketModel.ProfileImageStatu" />
+          <EntitySet Name="RegisterVerifications" EntityType="GoldmedalTicketModel.RegisterVerification" />
+          <EntitySet Name="ReplyAttachments" EntityType="GoldmedalTicketModel.ReplyAttachment" />
+          <EntitySet Name="ReplyAttachmentDetails" EntityType="GoldmedalTicketModel.ReplyAttachmentDetail" />
+          <EntitySet Name="ResetPasswordVerifications" EntityType="GoldmedalTicketModel.ResetPasswordVerification" />
+          <EntitySet Name="SavedAssignedRoles" EntityType="GoldmedalTicketModel.SavedAssignedRole" />
+          <EntitySet Name="Signatures" EntityType="GoldmedalTicketModel.Signature" />
+          <EntitySet Name="Status" EntityType="GoldmedalTicketModel.Status" />
+          <EntitySet Name="TicketDeleteLockStatus" EntityType="GoldmedalTicketModel.TicketDeleteLockStatu" />
+          <EntitySet Name="TicketDetails" EntityType="GoldmedalTicketModel.TicketDetail" />
+          <EntitySet Name="TicketEscalationHistories" EntityType="GoldmedalTicketModel.TicketEscalationHistory" />
+          <EntitySet Name="TicketHistories" EntityType="GoldmedalTicketModel.TicketHistory" />
+          <EntitySet Name="TicketReplies" EntityType="GoldmedalTicketModel.TicketReply" />
+          <EntitySet Name="Tickets" EntityType="GoldmedalTicketModel.Ticket" />
+          <EntitySet Name="TicketStatus" EntityType="GoldmedalTicketModel.TicketStatu" />
+          <EntitySet Name="UserTokens" EntityType="GoldmedalTicketModel.UserToken" />
+          <EntitySet Name="Attachments" EntityType="GoldmedalTicketModel.Attachment" />
+          <EntitySet Name="PasswordMasters" EntityType="GoldmedalTicketModel.PasswordMaster" />
+          <EntitySet Name="Usermasters" EntityType="GoldmedalTicketModel.Usermaster" />
+          <EntitySet Name="CategoryConfigrations" EntityType="GoldmedalTicketModel.CategoryConfigration" />
+          <EntitySet Name="Login_history" EntityType="GoldmedalTicketModel.Login_history" />
+          <EntitySet Name="logindetls" EntityType="GoldmedalTicketModel.logindetl" />
+          <EntitySet Name="BusinessHours" EntityType="GoldmedalTicketModel.BusinessHour" />
+        </EntityContainer>
+        <EntityType Name="CategoryMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="RoleMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+          <Property Name="RoleId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MenuCategoryMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuCategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RoleId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+          <Property Name="SortingOrder" Type="Int64" />
+        </EntityType>
+        <EntityType Name="MenuMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ControllerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActionMethod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryId" Type="Int64" />
+          <Property Name="RoleId" Type="Int64" />
+          <Property Name="SortingOrder" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="SubMenuMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ControllerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActionMethod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SubMenuName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MenuId" Type="Int64" />
+          <Property Name="CategoryId" Type="Int64" />
+          <Property Name="RoleId" Type="Int64" />
+          <Property Name="SortingOrder" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+          <Property Name="UserId" Type="Int64" />
+        </EntityType>
+        <EntityType Name="AgentCategoryAssigned">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int64" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="AgentCheckInStatusDetail">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CheckInTime" Type="DateTime" Precision="3" />
+          <Property Name="CheckOutTime" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="AgentCheckInStatusSummary">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgentStatus" Type="Boolean" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="AttachmentDetail">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttachmentBytes" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TicketId" Type="Int64" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="AttachmentId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="OverdueType">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OverdueType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PriorityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="ProfileImage">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileImageBase64String" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="ProfileImageStatu">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Isuploaded" Type="Boolean" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="ProfileImageId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="RegisterVerification">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GeneratedToken" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GeneratedDate" Type="DateTime" Precision="3" />
+          <Property Name="VerificationStatus" Type="Boolean" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="VerificationDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="ReplyAttachment">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" />
+          <Property Name="AttachmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AttachmentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TicketUser" Type="Int64" />
+          <Property Name="SystemUser" Type="Int64" />
+          <Property Name="TicketReplyId" Type="Int64" />
+          <Property Name="TicketId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="ReplyAttachmentDetail">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttachmentBytes" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TicketId" Type="Int64" />
+          <Property Name="ReplyAttachmentId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="ResetPasswordVerification">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GeneratedToken" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GeneratedDate" Type="DateTime" Precision="3" />
+          <Property Name="VerificationStatus" Type="Boolean" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="VerificationDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="SavedAssignedRole">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="RoleId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Signature">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Signature1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsInternalStatus" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="TicketDeleteLockStatu">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketDeleteStatus" Type="Boolean" />
+          <Property Name="TicketLockStatus" Type="Boolean" />
+          <Property Name="TicketId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="TicketDetail">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="TicketId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="TicketEscalationHistory">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketId" Type="Int64" />
+          <Property Name="EscalationDate1" Type="DateTime" Precision="3" />
+          <Property Name="EscalationDate2" Type="DateTime" Precision="3" />
+          <Property Name="EscalationStage1UserId" Type="Int64" />
+          <Property Name="EscalationStage2UserId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="TicketHistory">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ProcessDate" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="TicketId" Type="Int64" />
+          <Property Name="StatusId" Type="Int64" />
+          <Property Name="PriorityId" Type="Int64" />
+          <Property Name="CategoryId" Type="Int64" />
+          <Property Name="TicketReplyId" Type="Int64" />
+          <Property Name="ActivitiesId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="TicketReply">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="TicketId" Type="Int64" />
+          <Property Name="CreatedDateDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteStatus" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrackingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PriorityId" Type="Int64" />
+          <Property Name="CategoryId" Type="Int64" />
+          <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="StatusAssigned" Type="Boolean" />
+          <Property Name="InternalUserId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="TicketStatu">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketId" Type="Int64" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="TicketAssignedDate" Type="DateTime" Precision="3" />
+          <Property Name="TicketUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusId" Type="Int64" />
+          <Property Name="PriorityId" Type="Int64" />
+          <Property Name="DeleteStatus" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="PerviousStatusId" Type="Int64" />
+          <Property Name="CategoryId" Type="Int64" />
+          <Property Name="EscalationStatus" Type="Boolean" />
+          <Property Name="FirstResponseDue" Type="DateTime" Precision="3" />
+          <Property Name="FirstResponseStatus" Type="Boolean" />
+          <Property Name="ResolutionDue" Type="DateTime" Precision="3" />
+          <Property Name="ResolutionStatus" Type="Boolean" />
+          <Property Name="EveryResponseStatus" Type="Boolean" />
+          <Property Name="EscalationStage" Type="Int64" />
+          <Property Name="IsActive1" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="UserToken">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Attachment">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttachmentName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="AttachmentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TicketId" Type="Int64" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="PasswordMaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Usermaster">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsFirstLogin" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+          <Property Name="IsLogin_Active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CategoryConfigration">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" />
+          <Property Name="CategoryId" Type="Int64" />
+          <Property Name="AgentAdminUserId" Type="Int64" />
+          <Property Name="BusinessHoursId" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+          <Property Name="HodUserId" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Login_history">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int64" />
+          <Property Name="loginTime" Type="DateTime" Precision="3" />
+          <Property Name="logouttime" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+        <EntityType Name="logindetl">
+          <Key>
+            <PropertyRef Name="SlNo" />
+          </Key>
+          <Property Name="SlNo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userlogid" Type="Int32" Nullable="false" />
+          <Property Name="logindt" Type="DateTime" Precision="3" />
+          <Property Name="ipaddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="computername" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="logtime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="macaddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GeoLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OSFamily" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OSVersion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserFamily" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserVersion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceFamily" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceFormFactor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="devBrand" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="devModel" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="devbot" Type="Boolean" />
+          <Property Name="LocationType" Type="Int32" />
+          <Property Name="LocationResponse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BusinessHour">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HelpdeskHoursType" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateId" Type="Int64" />
+          <Property Name="Createdt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyId" Type="Int64" />
+          <Property Name="Modifydt" Type="DateTime" Precision="3" />
+          <Property Name="DelId" Type="Int64" />
+          <Property Name="Deldt" Type="DateTime" Precision="3" />
+          <Property Name="LogNo" Type="Int64" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GoldmedalTicketModelStoreContainer" CdmEntityContainer="GoldmedalTicketEntities">
+          <EntitySetMapping Name="CategoryMasters">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.CategoryMaster">
+              <MappingFragment StoreEntitySet="CategoryMaster">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleMasters">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.RoleMaster">
+              <MappingFragment StoreEntitySet="RoleMaster">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuCategoryMasters">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.MenuCategoryMaster">
+              <MappingFragment StoreEntitySet="MenuCategoryMaster">
+                <ScalarProperty Name="SortingOrder" ColumnName="SortingOrder" />
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="MenuCategoryName" ColumnName="MenuCategoryName" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuMasters">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.MenuMaster">
+              <MappingFragment StoreEntitySet="MenuMaster">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SortingOrder" ColumnName="SortingOrder" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ActionMethod" ColumnName="ActionMethod" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubMenuMasters">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.SubMenuMaster">
+              <MappingFragment StoreEntitySet="SubMenuMaster">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SortingOrder" ColumnName="SortingOrder" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="SubMenuName" ColumnName="SubMenuName" />
+                <ScalarProperty Name="ActionMethod" ColumnName="ActionMethod" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentCategoryAssigneds">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.AgentCategoryAssigned">
+              <MappingFragment StoreEntitySet="AgentCategoryAssigned">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentCheckInStatusDetails">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.AgentCheckInStatusDetail">
+              <MappingFragment StoreEntitySet="AgentCheckInStatusDetails">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+                <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentCheckInStatusSummaries">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.AgentCheckInStatusSummary">
+              <MappingFragment StoreEntitySet="AgentCheckInStatusSummary">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AgentStatus" ColumnName="AgentStatus" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttachmentDetails">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.AttachmentDetail">
+              <MappingFragment StoreEntitySet="AttachmentDetails">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AttachmentId" ColumnName="AttachmentId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="AttachmentBytes" ColumnName="AttachmentBytes" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OverdueTypes">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.OverdueType">
+              <MappingFragment StoreEntitySet="OverdueTypes">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="OverdueType1" ColumnName="OverdueType" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Priorities">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.Priority">
+              <MappingFragment StoreEntitySet="Priority">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PriorityName" ColumnName="PriorityName" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileImages">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.ProfileImage">
+              <MappingFragment StoreEntitySet="ProfileImage">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProfileImageBase64String" ColumnName="ProfileImageBase64String" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileImageStatus">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.ProfileImageStatu">
+              <MappingFragment StoreEntitySet="ProfileImageStatus">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ProfileImageId" ColumnName="ProfileImageId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Isuploaded" ColumnName="Isuploaded" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegisterVerifications">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.RegisterVerification">
+              <MappingFragment StoreEntitySet="RegisterVerification">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="VerificationDate" ColumnName="VerificationDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="VerificationStatus" ColumnName="VerificationStatus" />
+                <ScalarProperty Name="GeneratedDate" ColumnName="GeneratedDate" />
+                <ScalarProperty Name="GeneratedToken" ColumnName="GeneratedToken" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReplyAttachments">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.ReplyAttachment">
+              <MappingFragment StoreEntitySet="ReplyAttachment">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="TicketReplyId" ColumnName="TicketReplyId" />
+                <ScalarProperty Name="SystemUser" ColumnName="SystemUser" />
+                <ScalarProperty Name="TicketUser" ColumnName="TicketUser" />
+                <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+                <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReplyAttachmentDetails">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.ReplyAttachmentDetail">
+              <MappingFragment StoreEntitySet="ReplyAttachmentDetails">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ReplyAttachmentId" ColumnName="ReplyAttachmentId" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="AttachmentBytes" ColumnName="AttachmentBytes" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResetPasswordVerifications">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.ResetPasswordVerification">
+              <MappingFragment StoreEntitySet="ResetPasswordVerification">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="VerificationDate" ColumnName="VerificationDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="VerificationStatus" ColumnName="VerificationStatus" />
+                <ScalarProperty Name="GeneratedDate" ColumnName="GeneratedDate" />
+                <ScalarProperty Name="GeneratedToken" ColumnName="GeneratedToken" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SavedAssignedRoles">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.SavedAssignedRole">
+              <MappingFragment StoreEntitySet="SavedAssignedRoles">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Signatures">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.Signature">
+              <MappingFragment StoreEntitySet="Signatures">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Signature1" ColumnName="Signature" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsInternalStatus" ColumnName="IsInternalStatus" />
+                <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketDeleteLockStatus">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.TicketDeleteLockStatu">
+              <MappingFragment StoreEntitySet="TicketDeleteLockStatus">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="TicketLockStatus" ColumnName="TicketLockStatus" />
+                <ScalarProperty Name="TicketDeleteStatus" ColumnName="TicketDeleteStatus" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketDetails">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.TicketDetail">
+              <MappingFragment StoreEntitySet="TicketDetails">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketEscalationHistories">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.TicketEscalationHistory">
+              <MappingFragment StoreEntitySet="TicketEscalationHistory">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EscalationStage2UserId" ColumnName="EscalationStage2UserId" />
+                <ScalarProperty Name="EscalationStage1UserId" ColumnName="EscalationStage1UserId" />
+                <ScalarProperty Name="EscalationDate2" ColumnName="EscalationDate2" />
+                <ScalarProperty Name="EscalationDate1" ColumnName="EscalationDate1" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketHistories">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.TicketHistory">
+              <MappingFragment StoreEntitySet="TicketHistory">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ActivitiesId" ColumnName="ActivitiesId" />
+                <ScalarProperty Name="TicketReplyId" ColumnName="TicketReplyId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketReplies">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.TicketReply">
+              <MappingFragment StoreEntitySet="TicketReply">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DeleteStatus" ColumnName="DeleteStatus" />
+                <ScalarProperty Name="CreatedDateDisplay" ColumnName="CreatedDateDisplay" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.Ticket">
+              <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="InternalUserId" ColumnName="InternalUserId" />
+                <ScalarProperty Name="StatusAssigned" ColumnName="StatusAssigned" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TrackingId" ColumnName="TrackingId" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketStatus">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.TicketStatu">
+              <MappingFragment StoreEntitySet="TicketStatus">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive1" ColumnName="IsActive1" />
+                <ScalarProperty Name="EscalationStage" ColumnName="EscalationStage" />
+                <ScalarProperty Name="EveryResponseStatus" ColumnName="EveryResponseStatus" />
+                <ScalarProperty Name="ResolutionStatus" ColumnName="ResolutionStatus" />
+                <ScalarProperty Name="ResolutionDue" ColumnName="ResolutionDue" />
+                <ScalarProperty Name="FirstResponseStatus" ColumnName="FirstResponseStatus" />
+                <ScalarProperty Name="FirstResponseDue" ColumnName="FirstResponseDue" />
+                <ScalarProperty Name="EscalationStatus" ColumnName="EscalationStatus" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="PerviousStatusId" ColumnName="PerviousStatusId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DeleteStatus" ColumnName="DeleteStatus" />
+                <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="TicketUpdatedDate" ColumnName="TicketUpdatedDate" />
+                <ScalarProperty Name="TicketAssignedDate" ColumnName="TicketAssignedDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTokens">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.UserToken">
+              <MappingFragment StoreEntitySet="UserTokens">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attachments">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.Attachment">
+              <MappingFragment StoreEntitySet="Attachments">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="AttachmentType" ColumnName="AttachmentType" />
+                <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PasswordMasters">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.PasswordMaster">
+              <MappingFragment StoreEntitySet="PasswordMaster">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usermasters">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.Usermaster">
+              <MappingFragment StoreEntitySet="Usermaster">
+                <ScalarProperty Name="IsLogin_Active" ColumnName="IsLogin_Active" />
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsFirstLogin" ColumnName="IsFirstLogin" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryConfigrations">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.CategoryConfigration">
+              <MappingFragment StoreEntitySet="CategoryConfigration">
+                <ScalarProperty Name="HodUserId" ColumnName="HodUserId" />
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="BusinessHoursId" ColumnName="BusinessHoursId" />
+                <ScalarProperty Name="AgentAdminUserId" ColumnName="AgentAdminUserId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login_history">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.Login_history">
+              <MappingFragment StoreEntitySet="Login_history">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="logouttime" ColumnName="logouttime" />
+                <ScalarProperty Name="loginTime" ColumnName="loginTime" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logindetls">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.logindetl">
+              <MappingFragment StoreEntitySet="logindetl">
+                <ScalarProperty Name="LocationResponse" ColumnName="LocationResponse" />
+                <ScalarProperty Name="LocationType" ColumnName="LocationType" />
+                <ScalarProperty Name="devbot" ColumnName="devbot" />
+                <ScalarProperty Name="devModel" ColumnName="devModel" />
+                <ScalarProperty Name="devBrand" ColumnName="devBrand" />
+                <ScalarProperty Name="DeviceFormFactor" ColumnName="DeviceFormFactor" />
+                <ScalarProperty Name="DeviceFamily" ColumnName="DeviceFamily" />
+                <ScalarProperty Name="BrowserVersion" ColumnName="BrowserVersion" />
+                <ScalarProperty Name="BrowserFamily" ColumnName="BrowserFamily" />
+                <ScalarProperty Name="OSVersion" ColumnName="OSVersion" />
+                <ScalarProperty Name="OSFamily" ColumnName="OSFamily" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="GeoLocation" ColumnName="GeoLocation" />
+                <ScalarProperty Name="macaddress" ColumnName="macaddress" />
+                <ScalarProperty Name="logtime" ColumnName="logtime" />
+                <ScalarProperty Name="computername" ColumnName="computername" />
+                <ScalarProperty Name="ipaddress" ColumnName="ipaddress" />
+                <ScalarProperty Name="logindt" ColumnName="logindt" />
+                <ScalarProperty Name="userlogid" ColumnName="userlogid" />
+                <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessHours">
+            <EntityTypeMapping TypeName="GoldmedalTicketModel.BusinessHour">
+              <MappingFragment StoreEntitySet="BusinessHours">
+                <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+                <ScalarProperty Name="Deldt" ColumnName="Deldt" />
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="Modifydt" ColumnName="Modifydt" />
+                <ScalarProperty Name="ModifyId" ColumnName="ModifyId" />
+                <ScalarProperty Name="Createdt" ColumnName="Createdt" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="HelpdeskHoursType" ColumnName="HelpdeskHoursType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

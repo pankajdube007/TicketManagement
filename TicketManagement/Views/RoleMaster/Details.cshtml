@@ -1,0 +1,41 @@
+﻿@model TicketManagement.Reposistory.RoleMaster
+
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+}
+
+
+<div class="col-md-6 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Role Details</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <br />
+            <div class="alert alert-info">
+                <strong>Info!</strong> Are you sure you want to delete this?
+            </div>
+            <div class="form-group">
+                <b>@Html.DisplayNameFor(model => model.RoleName)</b>
+                @Html.DisplayFor(model => model.RoleName)
+            </div>
+            <div class="form-group">
+                <b>@Html.DisplayNameFor(model => model.IsActive)</b>
+                @Html.DisplayFor(model => model.IsActive)
+            </div>
+            <div class="form-group">
+                <b> @Html.Label("CreateDate")</b>
+                @Html.DisplayFor(model => model.Createdt)
+            </div>
+
+
+            <div class="form-group">
+
+                @Html.ActionLink("Edit", "Edit", new { id = Model.SLNO },new {@class= "btn btn-round btn-success" }) |
+                <a href="/RoleMaster/Index" class="btn btn-round btn btn-primary"> Back to List</a>
+            </div>
+
+        </div>
+    </div>
+</div>
